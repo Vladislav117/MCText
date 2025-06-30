@@ -1,6 +1,6 @@
-# JavaLibraryTemplate
+# MCText
 
-JavaLibraryTemplate - шаблон java-библиотеки.
+MCText - .
 
 ## Добавление зависимости
 
@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.Vladislav117:JavaLibraryTemplate:0.0.0'
+    implementation 'com.github.Vladislav117:MCText:0.0.0'
 }
 ```
 
@@ -28,4 +28,6 @@ dependencies {
 
 ## Использование
 
-Для использования шаблона необходимо адаптировать его.
+```java
+// Будет добавлено позже
+```
