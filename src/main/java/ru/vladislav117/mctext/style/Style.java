@@ -74,7 +74,7 @@ public class Style implements StyleLike {
         underlined = style.underlined;
         strikethrough = style.strikethrough;
         obfuscated = style.obfuscated;
-        if (style.color != null) color = Color.fromRGB(style.color);
+        if (style.color != null) color = Color.fromRGB(style.color); // TODO: Change this
     }
 
     /**
@@ -206,7 +206,7 @@ public class Style implements StyleLike {
             style.underlined = underlined;
             style.strikethrough = strikethrough;
             style.obfuscated = obfuscated;
-            if (color != null) style.color = Color.fromRGB(color);
+            if (color != null) style.color = Color.fromRGB(color); // TODO: Change this
             return style;
         } catch (CloneNotSupportedException exception) {
             throw new RuntimeException(exception);
