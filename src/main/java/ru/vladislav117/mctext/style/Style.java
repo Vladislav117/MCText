@@ -16,7 +16,7 @@ public class Style implements StyleLike {
     protected @Nullable Boolean underlined = null;
     protected @Nullable Boolean strikethrough = null;
     protected @Nullable Boolean obfuscated = null;
-    protected @Nullable RGBColorSpaceHolder color = null;
+    protected @Nullable ColorLike color = null;
 
     /**
      * Создание нового стиля.
@@ -28,7 +28,7 @@ public class Style implements StyleLike {
      * @param obfuscated    Значение компонента стиля "запутанный" ("магический"), или null, чтобы сделать компонент незаданным
      * @param color         Цвет стиля, или null, чтобы сделать цвет незаданным
      */
-    public Style(@Nullable Boolean bold, @Nullable Boolean italic, @Nullable Boolean underlined, @Nullable Boolean strikethrough, @Nullable Boolean obfuscated, @Nullable RGBColorSpaceHolder color) {
+    public Style(@Nullable Boolean bold, @Nullable Boolean italic, @Nullable Boolean underlined, @Nullable Boolean strikethrough, @Nullable Boolean obfuscated, @Nullable ColorLike color) {
         this.bold = bold;
         this.italic = italic;
         this.underlined = underlined;
@@ -59,7 +59,7 @@ public class Style implements StyleLike {
      *
      * @param color Цвет стиля, или null, чтобы сделать цвет незаданным
      */
-    public Style(@Nullable RGBColorSpaceHolder color) {
+    public Style(@Nullable ColorLike color) {
         this.color = color;
     }
 
@@ -74,7 +74,7 @@ public class Style implements StyleLike {
         underlined = style.underlined;
         strikethrough = style.strikethrough;
         obfuscated = style.obfuscated;
-        if (style.color != null) color = Color.fromRGB(style.color); // TODO: Change this
+        if (style.color != null) color = style.color.clone();
     }
 
     /**
@@ -193,7 +193,7 @@ public class Style implements StyleLike {
      * @param color Цвет стиля, или null, чтобы сделать цвет незаданным
      * @return Созданный стиль.
      */
-    public static Style newColor(@Nullable RGBColorSpaceHolder color) {
+    public static Style newColor(@Nullable ColorLike color) {
         return new Style(color);
     }
 
@@ -206,7 +206,7 @@ public class Style implements StyleLike {
             style.underlined = underlined;
             style.strikethrough = strikethrough;
             style.obfuscated = obfuscated;
-            if (color != null) style.color = Color.fromRGB(color); // TODO: Change this
+            if (color != null) style.color = color.clone();
             return style;
         } catch (CloneNotSupportedException exception) {
             throw new RuntimeException(exception);
@@ -269,12 +269,12 @@ public class Style implements StyleLike {
     }
 
     @Override
-    public @Nullable RGBColorSpaceHolder getColor() {
+    public @Nullable ColorLike getColor() {
         return color;
     }
 
     @Override
-    public Style setColor(@Nullable RGBColorSpaceHolder color) {
+    public Style setColor(@Nullable ColorLike color) {
         this.color = color;
         return this;
     }

@@ -106,7 +106,7 @@ public interface StyleLike extends Cloneable {
      *
      * @return Цвет стиля или null, если цвет не задан.
      */
-    default @Nullable RGBColorSpaceHolder getColor() {
+    default @Nullable ColorLike getColor() {
         return null;
     }
 
@@ -116,7 +116,7 @@ public interface StyleLike extends Cloneable {
      * @param color Цвет стиля или null, чтобы сделать цвет незаданным.
      * @return Этот же стиль.
      */
-    default StyleLike setColor(@Nullable RGBColorSpaceHolder color) {
+    default StyleLike setColor(@Nullable ColorLike color) {
         return this;
     }
 
