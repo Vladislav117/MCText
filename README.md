@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.github.Vladislav117:Colors:0.3.1'
     implementation 'com.github.Vladislav117:MCText:0.0.1'
 }
 ```
