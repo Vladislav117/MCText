@@ -130,6 +130,11 @@ public interface TextLike extends Cloneable {
         return new TextContainer(clone());
     }
 
+    /**
+     * Копирование текста.
+     *
+     * @return Скопированный текст.
+     */
     TextLike clone();
 
     /**

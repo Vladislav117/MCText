@@ -120,6 +120,11 @@ public interface StyleLike extends Cloneable {
         return this;
     }
 
+    /**
+     * Копирование стиля текста.
+     *
+     * @return Скопированный стиль текста.
+     */
     StyleLike clone();
 
     /**
