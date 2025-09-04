@@ -1,16 +1,12 @@
-import javalibrarytemplateplugin.JavaLibraryTemplatePlugin
-
 plugins {
     id 'java'
     id 'maven-publish'
     id 'idea'
 }
 
-apply plugin: JavaLibraryTemplatePlugin
-
 // Information
 
-group = 'ru.vladislav117.javalibrarytemplate'
+group = 'ru.vladislav117.mctext'
 version = '0.0.0'
 
 // Dependencies
@@ -22,6 +18,8 @@ repositories {
 
 dependencies {
     compileOnly 'org.jetbrains:annotations:26.0.2'
+    compileOnly 'net.kyori:adventure-api:4.22.0'
+    implementation 'com.github.Vladislav117:JColor:0.0.0'
 
     testImplementation platform('org.junit:junit-bom:5.13.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
@@ -29,6 +27,13 @@ dependencies {
 }
 
 // Compiling
+
+jar {
+    from {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
 
 compileJava.options.encoding = "UTF-8"
 
